@@ -5,7 +5,7 @@
 int main() {
 
 	fifo_string test_obj;
-	test_obj.push("PROI1");
+	//test_obj.push("PROI1");
 	test_obj.push("PROI2");
 	test_obj.push("PROI3");
 	test_obj.push("PROI4");
