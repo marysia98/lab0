@@ -9,6 +9,13 @@ fifo_string::fifo_string()
 
 fifo_string::~fifo_string()
 {
+	_item *iter;
+	while (take_pointer != NULL)
+	{
+		iter = take_pointer;
+		take_pointer = take_pointer->n;
+		delete iter;
+	}
 	delete take_pointer;
 	delete push_pointer;
 }
@@ -53,7 +60,7 @@ std::string fifo_string::take()
 	}
 
 	delete tmp;
-	
+
 	return str;
 }
 
@@ -61,9 +68,9 @@ std::string fifo_string::get(int i) const
 {
 	_item *iterator = take_pointer;
 	int x = 0;
-	while(x < i) {
+	while(x < i $$ iterator!=NULL) {
 		iterator = iterator->n;
-		x++;	
+		x++;
 	}
 	if (x == i)
 		return iterator->str;
@@ -88,4 +95,3 @@ std::ostream &operator<< (std::ostream & out, fifo_string & fifo)
 
         return out;
 }
-
