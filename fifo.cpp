@@ -16,8 +16,6 @@ fifo_string::~fifo_string()
 		take_pointer = take_pointer->n;
 		delete iter;
 	}
-	delete take_pointer;
-	delete push_pointer;
 }
 
 fifo_string::_item::_item(const char* item)
@@ -68,7 +66,7 @@ std::string fifo_string::get(int i) const
 {
 	_item *iterator = take_pointer;
 	int x = 0;
-	while(x < i $$ iterator!=NULL) {
+	while(x < i && iterator!=NULL) {
 		iterator = iterator->n;
 		x++;
 	}
